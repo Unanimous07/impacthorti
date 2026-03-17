@@ -1,0 +1,71 @@
+<section id="why-us" class="py-28 md:py-32 bg-primary-900 relative overflow-hidden">
+  <!-- Decorative background -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-primary-800 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50"></div>
+  <div class="absolute bottom-0 right-0 w-72 h-72 bg-accent-500/10 rounded-full translate-x-1/3 translate-y-1/3"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16" appScrollReveal="fade-up">
+      <span class="text-sm font-semibold text-accent-400 tracking-widest uppercase">Our Advantage</span>
+      <h2 class="mt-3 max-w-3xl mx-auto text-3xl sm:text-4xl lg:text-5xl leading-tight font-bold text-white font-[family-name:var(--font-display)]">
+        Why Partner with ImpactHorti?
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-white/70">
+        We combine horticultural expertise, mushroom specialization, and landscape execution to deliver dependable results.
+      </p>
+      <div class="mt-4 w-20 h-1 bg-accent-500 mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Reasons Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      @for (reason of reasons; track reason.title; let i = $index) {
+        <div
+          class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-7 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/20 group"
+          appScrollReveal="fade-up"
+          [delay]="i * 100"
+        >
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-accent-500/20 flex items-center justify-center mb-5 group-hover:bg-accent-500/30 transition-colors">
+            @switch (reason.icon) {
+              @case ('leaf') {
+                <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
+              }
+              @case ('globe') {
+                <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              }
+              @case ('calendar') {
+                <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              }
+              @case ('users') {
+                <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+              }
+              @case ('settings') {
+                <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              }
+              @case ('shield') {
+                <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              }
+            }
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-xl font-bold text-white mb-2.5">{{ reason.title }}</h3>
+          <p class="text-white/60 leading-relaxed text-sm">{{ reason.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

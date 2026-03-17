@@ -1,0 +1,74 @@
+<nav
+  [class]="isScrolled() ? 'fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg transition-all duration-300' : 'fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300'"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2 group">
+        <img
+          src="assets/images/ImpactHorti.png"
+          alt="ImpactHorti Logo"
+          [class]="isScrolled() ? 'h-12 w-auto transition-all duration-300' : 'h-12 w-auto brightness-0 invert transition-all duration-300'"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        @for (link of navLinks; track link.href) {
+          <a
+            [href]="link.href"
+            [class]="isScrolled() ? 'text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-primary-600 after:transition-all hover:after:w-full' : 'text-sm font-medium text-white/90 hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-accent-400 after:transition-all hover:after:w-full'"
+          >
+            {{ link.label }}
+          </a>
+        }
+        <a
+          href="#contact"
+          class="px-6 py-2.5 bg-accent-500 text-white text-sm font-semibold rounded-full hover:bg-accent-600 transition-all hover:shadow-lg hover:-translate-y-0.5"
+        >
+          Get In Touch
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="md:hidden p-2 rounded-lg"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="w-6 h-6" [class]="isScrolled() ? 'text-gray-700': 'text-white'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          @if (isMobileMenuOpen()) {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          } @else {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          }
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (isMobileMenuOpen()) {
+    <div class="md:hidden bg-white border-t shadow-xl">
+      <div class="px-4 py-6 space-y-3">
+        @for (link of navLinks; track link.href) {
+          <a
+            [href]="link.href"
+            class="block px-4 py-3 text-gray-700 font-medium hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
+            (click)="closeMobileMenu()"
+          >
+            {{ link.label }}
+          </a>
+        }
+        <a
+          href="#contact"
+          class="block text-center px-4 py-3 bg-accent-500 text-white font-semibold rounded-lg hover:bg-accent-600 transition-colors mt-4"
+          (click)="closeMobileMenu()"
+        >
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  }
+</nav>

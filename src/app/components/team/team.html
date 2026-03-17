@@ -1,0 +1,42 @@
+<section id="team" class="pt-20 pb-24 md:pt-24 md:pb-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" appScrollReveal="fade-up">
+      <span class="text-sm font-semibold text-accent-600 tracking-widest uppercase">Our Team</span>
+      <h2 class="mt-3 max-w-3xl mx-auto text-3xl sm:text-4xl lg:text-5xl leading-tight font-bold text-primary-900 font-[family-name:var(--font-display)]">
+        Meet the Leadership Behind ImpactHorti
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-gray-600">
+        A dedicated team combining strategy, operations, market growth, and AgriTech innovation to deliver reliable horticultural value.
+      </p>
+      <div class="mt-4 w-20 h-1 bg-accent-500 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
+      @for (member of teamMembers; track member.name; let i = $index) {
+        <article
+          class="bg-earth-50 rounded-2xl border border-earth-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
+          appScrollReveal="fade-up"
+          [delay]="i * 120"
+        >
+          <div class="p-3">
+            <div class="w-full aspect-square overflow-hidden bg-earth-100 rounded-xl">
+            <img
+              [ngSrc]="member.image"
+              [alt]="member.alt"
+              width="900"
+              height="900"
+              class="w-full h-full object-cover"
+              [style.object-position]="member.focus"
+              [style.transform]="'scale(' + member.zoom + ')'"
+            />
+            </div>
+          </div>
+          <div class="p-5 sm:p-6">
+            <h3 class="text-lg sm:text-xl font-bold text-primary-900 break-words">{{ member.name }}</h3>
+            <p class="mt-1.5 text-sm text-primary-700 font-medium leading-snug break-words">{{ member.role }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
